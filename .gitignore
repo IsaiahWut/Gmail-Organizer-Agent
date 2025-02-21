@@ -1,6 +1,12 @@
 # .gitignore
 .env
 agentstack_env/
+venv/
+credentials.json
+notes.txt
+token.json
+quickstart.py
+example_output.txt
 
 #System files
 __pycache__/
