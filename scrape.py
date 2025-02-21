@@ -38,7 +38,7 @@ def fetch_emails():
         # this while loop allows us to go through ALL of the pages  --------------------
         while 'messages' in messages: 
         
-                # extracting the message list
+            # extracting the message list
             messageList = messages.get('messages', [])
                 
             for msg in messageList:
