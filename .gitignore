@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -164,3 +165,20 @@ cython_debug/
 .agentops/
 agentstack.log
 .agentstack*
+=======
+# .gitignore
+.env
+agentstack_env/
+venv/
+credentials.json
+notes.txt
+token.json
+quickstart.py
+example_output.txt
+emails.json
+
+#System files
+__pycache__/
+*.__pycache__
+.DS_STORE
+>>>>>>> 9eb16e859375812d8d7b120c047d59f640e52ca8
