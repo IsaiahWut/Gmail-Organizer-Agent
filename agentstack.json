@@ -1,6 +1,10 @@
 {
-  "framework": "crewai",
-  "agentstack_version": "0.3.4",
-  "template": "email_organizer",
-  "template_version": "4"
+    "framework": "crewai",
+    "tools": [
+        "file_read"
+    ],
+    "agentstack_version": "0.3.4",
+    "template": "email_organizer",
+    "template_version": "4",
+    "use_git": true
 }

@@ -16,7 +16,7 @@ class EmailorganizerCrew():
     def organize_emails(self) -> Agent:
         return Agent(
             config=self.agents_config['organize_emails'],
-            tools=[], # add tools here or use `agentstack tools add <tool_name>
+            tools=[*agentstack.tools['file_read']], # add tools here or use `agentstack tools add <tool_name>
             verbose=True,
         )
 
