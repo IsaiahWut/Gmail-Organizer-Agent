@@ -1,0 +1,9 @@
+assign_labels:
+  description: >-
+    Analyze the {EMAILS} and organize them based off the given parameters: work, school,
+    spam/promotion, miscellaneous
+  expected_output: >-
+    A JSON object similar to the given input, but with the label of each email being
+    assigned one of the parameters.
+  agent: >-
+    organize_emails
