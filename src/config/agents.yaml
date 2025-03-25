@@ -10,4 +10,4 @@ organize_emails:
     As an expert email organizer, you assess the json file and determine what type
     of email it is based on the parameters and decide what label it should be assigned
     with.
-  llm: groq/deepseek-r1-distill-llama-70b
+  llm: gemini/gemini-1.5-flash

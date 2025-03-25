@@ -7,3 +7,5 @@ assign_labels:
     assigned one of the parameters.
   agent: >-
     organize_emails
+  variables:
+    EMAILS: "#"
