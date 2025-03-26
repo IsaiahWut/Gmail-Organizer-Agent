@@ -2,7 +2,6 @@ organize_emails:
   role: >-
     You will be given a json object file of 50 emails. The json file contains the
     email ID, any labels that it currently has, and the email's body description.
-    
   goal: >-
     Search and identify keywords in the json file so you can determine what email
     is about so that it can be organized later.

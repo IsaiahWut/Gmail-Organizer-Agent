@@ -15,13 +15,27 @@ def run():
     """
     Run the agent.
     """
-    instance.kickoff(inputs=agentstack.get_inputs())
+    original_stdout = sys.stdout
+    try: 
+        with open("output.json", "w") as file:
+            sys.stdout = file
+            instance.kickoff(inputs=agentstack.get_inputs())
+    finally:
+        sys.stdout = original_stdout
+
 
 def replace_info(file_path, json_file_path):
     try:
         # Open the emails.json and verify
         with open(json_file_path, "r") as json_file:
             email_data = json.load(json_file)
+
+        with open(file_path, "r") as file:
+            # opens the tasks yaml file and parses that data into yaml_data
+            yaml_data = yaml.safe_load(file)
+
+        # updates the variables emails in the tasks.yaml file with the correct path
+        yaml_data["variables"]["EMAILS"] = json_file_path
 
         # write to tasks.yaml in YAML format
         with open(file_path, "w") as file:
@@ -52,3 +66,12 @@ if __name__ == '__main__':
 # errors with the google oauth lib (python 3.13) but using python 3.12 for agentstack, miscommumincation error
 # also issues with the agent, currently it is only organizing one email instead of the entire list
 # problem with this might be the firecrawl API key, i might need to get that
+# just try and label one email, and then later we can worrry about all of them
+
+'''
+3/26/25
+might need to make another agent called store, and have that agent store the output, idk if this is even possible
+
+currently it is able to organize 8 emails
+
+'''

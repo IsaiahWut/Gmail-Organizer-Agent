@@ -111,3 +111,16 @@ def dictionary_to_json(email_data, filename="emails.json"):
     with open(filename, "w") as json_file:
         json.dump(email_data, json_file, indent=4)
     print(f"Emails saved to {filename}")
+
+email_list = fetch_emails()
+dictionary_to_json(email_list)
+
+''''
+do python3 scrape.py to fetch the emails and store the emails
+do this in separate terminal
+
+the operation flow should be to run this file first in python 3.13
+and then run agent stack in python 3.12 because thats the only version that works.
+run sequentially -----
+
+'''
