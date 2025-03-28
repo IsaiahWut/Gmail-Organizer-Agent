@@ -1,7 +1,3 @@
-'''
-Apply the labels now that we have labels.txt
-'''
-
 import re
 import os
 import json
@@ -71,6 +67,7 @@ def apply_labels(service, email_labels):
             print(f"Applied label '{label_name}' to email {email_id}")
         except Exception as e:
             print(f"Failed to label email {email_id}: {e}")
+
 
 service = build("gmail", "v1", credentials=authenticate())
 email_labels = parse_email_labels("labels.txt")

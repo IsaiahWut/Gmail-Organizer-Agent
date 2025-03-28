@@ -90,16 +90,6 @@ def fetch_emails():
         # else:
         #     break
         
-        for message_id, email_data in email_content.items():
-            labels = email_data.get('labels', [])
-            body = email_data.get('body', '')
-
-            print("-------------------------------------------------------")
-            print(f"Email ID: {message_id}")
-            print(f"Labels: {labels}")
-            print(f"Body: {body}")
-            print("-------------------------------------------------------")
-
         return email_content
 
     except HttpError as error:
@@ -114,13 +104,3 @@ def dictionary_to_json(email_data, filename="emails.json"):
 
 email_list = fetch_emails()
 dictionary_to_json(email_list)
-
-''''
-do python3 scrape.py to fetch the emails and store the emails
-do this in separate terminal
-
-the operation flow should be to run this file first in python 3.13
-and then run agent stack in python 3.12 because thats the only version that works.
-run sequentially -----
-
-'''

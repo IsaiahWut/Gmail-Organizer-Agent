@@ -23,6 +23,7 @@ def run():
     finally:
         sys.stdout = original_stdout
     
+    # clean the final output txt file
     clean_file("labels.txt")
 
 
@@ -62,42 +63,9 @@ def clean_file(filename, phrase="START OF OUTPUT"):
             file.writelines(lines[start_index:]) 
 
 if __name__ == '__main__':
-    # authenticate user if necessary
-    # fetch emails
-    # turn it into a json file
-    # email_list = fetch_emails()
-    # dictionary_to_json(email_list)
-
     # dump the json file
     yaml_file = "src/config/tasks.yaml"
     json_file = "emails.json"
     replace_info(yaml_file, json_file)
 
     run()
-
-# 3/24/25
-# need to work on including all of the functions into one file (the fetch_emails and dictionary to json)
-# errors with the google oauth lib (python 3.13) but using python 3.12 for agentstack, miscommumincation error
-# also issues with the agent, currently it is only organizing one email instead of the entire list
-# problem with this might be the firecrawl API key, i might need to get that
-# just try and label one email, and then later we can worrry about all of them
-
-'''
-3/26/25
-might need to make another agent called store, and have that agent store the output, idk if this is even possible
-
-currently it is able to organize 1-8 emails. 
-
-I need to fix the output.json file as it is jumbled and disorganized
-    - for parsing, i can either bruce force it and only focus on the actual output
-    - or i can fix how it is being stored 
-    after this i can loop through the output file and then make the changes ("test if this is actually possible and how it would work separately")
-
-    
-    the question is: is the email.json file always 200 lines of code?
-    if it is, we can just delete the first 338 lines of code to give us the output we actually want
-        we just also need to make sure that we append '}' and " \" " characters so that way we get no errors in the json file *** need to do this
-    
-    if the email json file is always a set number of lines of code, then we know that we can just delete a fixed number of lines of code
-    and it will be okay, instead of us having to delete everything up to a certain point, we can just brute force it
-'''
