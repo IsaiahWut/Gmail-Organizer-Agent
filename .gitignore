@@ -175,6 +175,7 @@ quickstart.py
 example_output.txt
 emails.json
 output.json
+labels.txt
 
 #System files
 __pycache__/

@@ -17,11 +17,13 @@ def run():
     """
     original_stdout = sys.stdout
     try: 
-        with open("output.json", "w") as file:
+        with open("labels.txt", "w") as file:
             sys.stdout = file
             instance.kickoff(inputs=agentstack.get_inputs())
     finally:
         sys.stdout = original_stdout
+    
+    clean_file("labels.txt")
 
 
 def replace_info(file_path, json_file_path):
@@ -46,6 +48,18 @@ def replace_info(file_path, json_file_path):
     except Exception as e:
         print(f"Error writing to YAML file: {e}")
 
+# clean the output text file so we are just left with the labels
+def clean_file(filename, phrase="START OF OUTPUT"):
+    with open(filename, "r") as file:
+        lines = file.readlines()
+    
+    # loop through the file and find the phrase "START OF OUTPUT"
+    start_index = next((i for i, line in enumerate(lines) if phrase in line), None)
+
+    if start_index is not None:
+        with open(filename, "w") as file:
+            # keep the actual agent output
+            file.writelines(lines[start_index:]) 
 
 if __name__ == '__main__':
     # authenticate user if necessary
@@ -72,6 +86,18 @@ if __name__ == '__main__':
 3/26/25
 might need to make another agent called store, and have that agent store the output, idk if this is even possible
 
-currently it is able to organize 8 emails
+currently it is able to organize 1-8 emails. 
 
+I need to fix the output.json file as it is jumbled and disorganized
+    - for parsing, i can either bruce force it and only focus on the actual output
+    - or i can fix how it is being stored 
+    after this i can loop through the output file and then make the changes ("test if this is actually possible and how it would work separately")
+
+    
+    the question is: is the email.json file always 200 lines of code?
+    if it is, we can just delete the first 338 lines of code to give us the output we actually want
+        we just also need to make sure that we append '}' and " \" " characters so that way we get no errors in the json file *** need to do this
+    
+    if the email json file is always a set number of lines of code, then we know that we can just delete a fixed number of lines of code
+    and it will be okay, instead of us having to delete everything up to a certain point, we can just brute force it
 '''

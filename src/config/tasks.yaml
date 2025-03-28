@@ -3,8 +3,18 @@ assign_labels:
     Analyze the {emails.json} and organize them based off the given parameters: work, school,
     spam/promotion, miscellaneous
   expected_output: >-
-    A JSON object titled 'output.json' similar to the given input, but with the label of each email being
-    assigned one of the parameters.
+    Return a text file of the organized emails with their respective ID in this format, ID: label.
+    Before you begin the list, please write "START OF OUTPUT" and then a new line
+    Please format the output in this manner:
+      ID: label,
+      ID: label,
+      ID: label,
+      ID: label,
+      .
+      .
+      .
+    Please indent after each comma to a new line.
+    At the end, please end the list with "END OF OUTPUT" with a newline as well.
   agent: >-
     organize_emails
   variables:
