@@ -6,10 +6,10 @@ assign_labels:
     Return a text file of the organized emails with their respective ID in this format, ID: label.
     Before you begin the list, please write "START OF OUTPUT" and then a new line
     Please format the output in this manner:
-      ID: label,
-      ID: label,
-      ID: label,
-      ID: label,
+      ID: label
+      ID: label
+      ID: label
+      ID: label
       .
       .
       .
