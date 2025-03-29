@@ -1,9 +1,3 @@
-'''
-
-this will categorize the emails using Agent stack and label them, lastly it will
-mark the emails as read at the end
-
-'''
 import os.path
 from setup import authenticate
 

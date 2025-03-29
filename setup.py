@@ -1,13 +1,4 @@
-# check if a token already exists
 import os.path 
-
-'''
-1. handles credentials
-2. laods the OAuth 2.0 credentials
-3. Handles user authentication
-4. GMAIL API client
-5. Error API requests
-'''
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
