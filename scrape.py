@@ -29,9 +29,6 @@ def fetch_emails():
         # pull out the actual content
         email_content = {}
         
-        # this while loop allows us to go through ALL of the pages  --------------------
-        # while 'messages' in messages: 
-        
         # extracting the message list
         messageList = messages.get('messages', [])
             
@@ -81,13 +78,11 @@ def fetch_emails():
         if 'nextPageToken' in messages:
             nextPageToken = messages['nextPageToken']
             messages = service.users().messages().list(userId="me", pageToken=nextPageToken).execute()
-        # else:
-        #     break
+        
         
         return email_content
 
     except HttpError as error:
-        # TODO(developer) - Handle errors from gmail API.
         print(f"An error occurred: {error}")
   
 # this will turn the dictionary scrape email into a json file
