@@ -79,7 +79,6 @@ def fetch_emails():
             nextPageToken = messages['nextPageToken']
             messages = service.users().messages().list(userId="me", pageToken=nextPageToken).execute()
         
-        
         return email_content
 
     except HttpError as error:
