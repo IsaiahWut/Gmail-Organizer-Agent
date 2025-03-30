@@ -1,2 +1,3 @@
 EMAIL AGENT ORGANIZER
-<video src="Email Agent Demo.mov" controls width="800"></video>
+[Demo video](https://youtu.be/zbcNYm22zyg)
+
